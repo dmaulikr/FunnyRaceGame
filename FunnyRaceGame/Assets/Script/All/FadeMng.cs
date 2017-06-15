@@ -17,6 +17,9 @@ public class FadeMng : MonoBehaviour {
 	public bool FadeOut;
 
 
+	GameObject Fade;
+
+
 	void Awake(){
 		//オブジェクトを検索し定義
 		FadeObj = gameObject.transform.FindChild ("FadeImage").gameObject;
@@ -25,6 +28,13 @@ public class FadeMng : MonoBehaviour {
 		FadeObj.GetComponent<Image> ().fillAmount = 1;
 		TextObj.SetActive (true);
 		FadeObj.SetActive (true);
+
+		Fade = gameObject;
+		if (Fade != null) {
+			DontDestroyOnLoad (gameObject);
+		}else{
+			Destroy(GameObject.FindWithTag("GameController"));
+		}
 	}
 
 	void Start () {
