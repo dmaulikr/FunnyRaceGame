@@ -163,4 +163,12 @@ public class CharaChoiceCtr : MonoBehaviour {
 			"time",  2.0f
 		));
 	}
+	public void OkBtn(){
+		GameObject.Find ("FadeCanvas").GetComponent<FadeMng> ().FadeIn = true;
+		iTween.MoveTo (charaPopUpObj, iTween.Hash (
+			"y", 	 -150f,
+			"time",  2.0f,
+			"delay",1.0f
+		));
+	}
 }
